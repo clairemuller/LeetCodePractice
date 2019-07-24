@@ -1,10 +1,11 @@
-// NOT SOLVED
+// SOLVED
 
 // Write a program that outputs the string representation of numbers from 1 to n.
 // But for multiples of three it should output “Fizz” instead of the number and for the multiples of five output “Buzz”. For numbers which are multiples of both three and five output “FizzBuzz”.
 
-// initial solution
-// not very scalable
+// good resource: https://ditam.github.io/posts/fizzbuzz/
+
+// initial solution, not scalable
 var fizzBuzz = function(n) {
   let count = 1;
   let arr = [];
@@ -25,36 +26,44 @@ var fizzBuzz = function(n) {
 
 // using string concatenation
 var fizzBuzz = function(n) {
-  let count = 1;
   let arr = [];
-  while (count <= n) {
+  for (let i = 1; i <= n; i++) {
     let str = '';
-    if (count % 3 === 0) {
+    if (i % 3 === 0) {
       str += 'Fizz';
     }
-    if (count % 5 === 0) {
+    if (i % 5 === 0) {
       str += 'Buzz';
     }
     if (str === '') {
-      str += `${count}`;
+      str += `${i}`;
     }
     arr.push(str)
-    count++;
   }
   return arr;
 };
 
+// using a hash table
+// for each number iterate over object's keys
+// more scalable, but keys aren't guaranteed to be in order
 var fizzBuzz = function(n) {
   let obj = { 3: 'Fizz', 5: 'Buzz' };
-  let count = 1;
   let arr = [];
-  while (count <= n) {
-    let str = '';
 
-    arr.push(str)
-    count++;
+  for (let i = 1; i <= n; i++) {
+    let str = '';
+    for (let key in obj) {
+      if (i % key === 0) {
+        str+= obj[key]
+      }
+    }
+    if (str === '') {
+      str += `${i}`;
+    }
+    arr.push(str);
   }
+
   return arr;
 };
 
-fizzBuzz(15)
+fizzBuzz(30)
