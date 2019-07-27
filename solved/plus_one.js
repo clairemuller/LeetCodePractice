@@ -5,6 +5,7 @@
 // You may assume the integer does not contain any leading zero, except the number 0 itself.
 // Input: [1,2,3]
 // Output: [1,2,4]
+// Explanation: The array represents the integer 123.
 
 var plusOne = function(digits) {
   let last = digits.length - 1;
