@@ -35,5 +35,27 @@ var moveZeroes = function(nums) {
   return nums;
 };
 
+// second attempt
+// instead of checking for zeroes and moving them to the end
+// check for non-zeroes and swap them with previously seen zeroes
+var moveZeroes = function(nums) {
+  let i = 0;
+  let zeroI = 0;
+
+  while (i < nums.length) {
+    if (nums[i] != 0) {
+      let tmp = nums[zeroI];
+      nums[zeroI] = nums[i];
+      nums[i] = tmp;
+      i++;
+      zeroI++;
+    } else {
+      i++;
+    }
+  }
+
+  return nums;
+};
+
 let nums = [0,1,0,3,12];
 moveZeroes(nums);
