@@ -47,10 +47,24 @@ var moveZeroes = function(nums) {
       let tmp = nums[zeroI];
       nums[zeroI] = nums[i];
       nums[i] = tmp;
-      i++;
       zeroI++;
-    } else {
-      i++;
+    }
+    i++;
+  }
+
+  return nums;
+};
+
+// same using for loop
+var moveZeroes = function(nums) {
+  let zeroI = 0;
+
+  for (let i = 0; i < nums.length; i++) {
+    if (nums[i] != 0) {
+      let tmp = nums[zeroI];
+      nums[zeroI] = nums[i];
+      nums[i] = tmp;
+      zeroI++;
     }
   }
 
