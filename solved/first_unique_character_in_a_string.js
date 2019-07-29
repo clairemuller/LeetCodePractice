@@ -22,7 +22,7 @@ var firstUniqChar = function(s) {
 
   for (letter of arr) {
     if (count[letter] === 1) {
-      return arr.indexOf(letter)
+      return arr.indexOf(letter);
     }
   }
 

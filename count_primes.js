@@ -7,5 +7,12 @@
 // Explanation: There are 4 prime numbers less than 10, they are 2, 3, 5, 7.
 
 var countPrimes = function(n) {
+  let count = 0;
+  while (n > 0) {
+    if () {
 
+    }
+    n--;
+  }
+  return count;
 };
