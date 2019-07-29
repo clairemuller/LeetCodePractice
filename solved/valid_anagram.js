@@ -41,18 +41,18 @@ var isAnagram = function(s, t) {
   let count = {};
   // iterate through one string, counting letters
   for (let i = 0; i < s.length; i++) {
-    count[s[i]] = (count[s[i]] || 0) + 1
+    count[s[i]] = (count[s[i]] || 0) + 1;
   };
   // iterate through other string, checking the object has letter key
   for (let i = 0; i < t.length; i++) {
     if (!count[t[i]]) {
-      return false
+      return false;
     } else {
       // if letter is in object, subtract count
-      count[t[i]] -= 1
+      count[t[i]] -= 1;
     }
   }
-  return true
+  return true;
 };
 
 // same as above but using for of syntax
@@ -60,16 +60,24 @@ var isAnagram = function(s, t) {
   if (s.length != t.length) {
     return false;
   };
+
   let count = {};
-  for (ll of s) {
-    count[ll] = (count[ll] || 0) + 1
+
+  for (letter of s) {
+    count[letter] = (count[letter] || 0) + 1;
   }
-  for (ll of t) {
-    if (!count[ll]) {
-      return false
+
+  for (letter of t) {
+    if (!count[letter]) {
+      return false;
     } else {
-      count[ll] -= 1
+      count[letter] -= 1;
     }
   }
-  return true
+  return true;
 };
+
+let s = 'string';
+let t = 'rtigns';
+
+isAnagram(s, t)
