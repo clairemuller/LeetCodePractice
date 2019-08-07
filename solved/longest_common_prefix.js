@@ -1,4 +1,4 @@
-// NOT SOLVED
+// SOLVED
 
 // Write a function to find the longest common prefix string amongst an array of strings.
 // If there is no common prefix, return an empty string "".
@@ -8,9 +8,12 @@
 // Output: "fl"
 
 // first attempt
+// horizontal scanning
 // set prefix equal to the first string
 // start for loop at next string
-// start comparing each letter
+// start comparing each letter of prefix with current string
+// if letters are different, change prefix
+// this solution goes through each string one by one
 var longestCommonPrefix = function(strs) {
   if (!strs || !strs.length) {
     return "";
@@ -28,6 +31,26 @@ var longestCommonPrefix = function(strs) {
   return prefix;
 };
 
+// second attempt
+// vertical scanning
+// save first string to variable, easier to read
+// start looping through each letter of first string
+// comparing it to each string's letter at index i
+var longestCommonPrefix = function(strs) {
+  let firstStr = strs[0] || "";
+
+  for (let i = 0; i < firstStr.length; i++) {
+    for (let j = 1; j < strs.length; j++) {
+      let currStr = strs[j]
+      if (firstStr[i] != currStr[i]) {
+        return currStr.slice(0, i);
+      }
+    }
+  }
+  return firstStr;
+}
+
 // let strs = ["flower","flow","flight"];
-let strs = ["ca","a"]
+// let strs = ["ca","a"]
+let strs = ['a','a','aa']
 longestCommonPrefix(strs);
