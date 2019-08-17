@@ -47,4 +47,16 @@ var isValidBST = function(root) {
   return false;
 };
 
+var isValidBST = function(root) {
+  if (!root) {
+    return true;
+  }
+  if (root.left) {
+    isValidBST(root.left);
+  }
+  if (root.right) {
+    isValidBST(root.right);
+  }
+};
+
 isValidBST(node5)
