@@ -10,12 +10,15 @@
 # Input: "leetcode"
 # Output: "leotcede"
 
+# initital solution
 # create hash of vowels, upper and lower
 # create two pointers, beginning and end of string
 # until i passes j, move i to find a vowel, then move j to find a vowel
 # ensure that i is less than j, then swap the vowels using a temporary variable
 # finally, move i and j and continue
 def reverse_vowels(s)
+    return s if s.empty?
+
     vowels = {
         "a" => 1, "e" => 1, "i" => 1, "o" => 1, "u" => 1, "A" => 1, "E" => 1, "I" => 1, "O" => 1, "U" => 1
     }
